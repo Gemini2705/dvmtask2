@@ -1,0 +1,27 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">
+					Add Quiz
+				</legend>
+				<div>
+					
+
+					<label for="inQuiz">Enter Quiz Name You Want Ur Question To Be Part Of (You Can Add Into Existing Quizes Too)</label>
+					<input type="text" name="inQuiz" >
+
+					
+
+
+				</div>
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit"> Add Quiz</button>			
+			</div>
+		</form>
+		
+	</div>
+{% endblock content %}

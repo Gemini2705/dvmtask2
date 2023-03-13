@@ -1,0 +1,22 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<h1>Welcome to Previously Answered Quizzes!</h1>
+
+		<div class="content-section">
+			<h2>Your Previous Quiz Records </h2>
+			<div class="container">
+			<table class="table">
+				<tr>
+					<th>Quiz Name</th>
+					<th>Total Marks</th>
+				</tr>
+				{% for recs in result %}
+				<tr>
+					<td> {{ recs.inQuiz }}</td>
+					<td> {{recs.total}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		    </div>
+		</div>
+{% endblock content %}

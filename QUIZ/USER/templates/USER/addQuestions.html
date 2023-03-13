@@ -1,0 +1,66 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="{% url 'addQuestions' %}">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">
+					Add Question
+				</legend>
+				<div>
+					<label for="qno">Enter Question No.</label>
+					<input type="number" name="qno" min="1" max="25" ><br>
+
+					<label for="question">Enter Question</label>
+					<input type="text" name="question" ><br>
+
+					<label for="inQuiz">Choose a Quiz:</label>
+					  <select id="inQuiz" name="inQuiz">
+					  	{% for q in quiz %}
+					    <option value="{{q.quizName}}">{{q.quizName}}</option>
+					    {% endfor %}
+					    
+					  </select><br>					  
+					<a href="{% url 'addquiz' %}">Add-Quiz</a>
+					<br><br>
+
+					<label >Enter question Type</label><br>
+					<input type="radio" name="qtype" value='MCQ' id=rad1>
+					<label for="rad1">MCQ</label><br>
+
+					<input type="radio" name="qtype" value='TrueFalse' id=rad2>
+					<label for="rad2">TrueFalse</label><br>
+
+					<input type="radio" name="qtype" value='Multiple' id=rad1>
+					<label for="rad1">Multiple</label><br>
+
+					<label for="opt1">Option 1 (Enter 'True' if TrueFalse Question)</label>
+					<input type="text" name="opt1"><br>
+
+					<label for="opt2">Option 2 (Enter 'False' if TrueFalse Question)</label>
+					<input type="text" name="opt2"><br>
+
+					<label for="opt3">Option 3 (Enter 'Null' if TrueFalse Question)</label>
+					<input type="text" name="opt3"><br>
+
+					<label for="anskey">Enter Answer</label>
+					<input type="text" name="anskey"><br>
+
+					<label for="anskey2">Enter Answer As A List - (if Multiple Correct Question)</label>
+					<input type="text" name="anskey2"><br>
+
+					<label for="ifcor">Marking scheme for correct answer (default +4)</label>
+					<input type="number" name="ifcor" min="1" max="25" ><br>
+
+					<label for="ifincor">Marking scheme for incorrect ans (default -1)</label>
+					<input type="number" name="ifincor" min="-5" max="0" ><br>
+
+				</div>
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit"> Add Question</button>			
+			</div>
+		</form>
+		
+	</div>
+{% endblock content %}

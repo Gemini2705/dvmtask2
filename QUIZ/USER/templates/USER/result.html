@@ -1,0 +1,30 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<h1>Welcome to RESULT Section!</h1>
+
+	<div class='content-section'>
+		<h2>Your result.</h2>
+		<h3>You Scored - {{total}}/{{outof}}</h3>		
+	</div>
+
+	<div>
+		<h2>Question Wise Analysis</h2>
+		
+		<table>
+			<thead>
+				<th>Question</th>
+				<th>Your Answer</th>
+				<th>Correct Answer</th>
+				<th>You Scored</th>
+			</thead>
+			{%for a in anskey%}
+			<tr>
+				<td>{{a.ofQuestion}}</td>
+				<td>{{a.givenAns1}} </td>
+				<td>{{a.correctAns}}</td>
+				<td>{{a.scored}}</td>
+			</tr><br>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock content %}
